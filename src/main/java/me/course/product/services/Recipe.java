@@ -1,5 +1,5 @@
 package me.course.product.services;
 
-public enum Recipe {
-
+public interface Recipe {
+    public void getRecipe();
 }

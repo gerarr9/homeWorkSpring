@@ -7,11 +7,23 @@ import java.util.Map;
 
 @Service
 public class IngredientImpl {
+
     public static Map<Integer, IngredientImpl> ingredients = new HashMap<>();
+    static {
+        addIngredient(new IngredientImpl("Банан", 1, "kg"));
+        addIngredient(new IngredientImpl("Яблоко", 1, "kg"));
+        addIngredient(new IngredientImpl("Йогурт", 2, "kg"));
+
+    }
+
     private  String name;
     private int quantity;
     private  String dimension;
 
+
+    public  IngredientImpl(){
+
+    }
     public IngredientImpl(String name, int quantity, String dimension) {
         this.name = name;
         this.quantity = quantity;

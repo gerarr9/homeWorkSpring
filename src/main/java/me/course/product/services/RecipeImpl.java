@@ -10,6 +10,19 @@ import java.util.Map;
 @Service
 public class RecipeImpl {
     public static Map<Integer, RecipeImpl> recipes = new HashMap<>();
+    static {
+        RecipeImpl salad = new RecipeImpl();
+        salad.setName("Фруктовый салат");
+        salad.setTime(5);
+        salad.addCookingSteps("Порезать фрукты");
+        salad.addCookingSteps("Высыпать йогурт");
+        salad.addCookingSteps("Перемешать");
+        salad.addIngredients(new IngredientImpl("Банан", 1, "kg"));
+        salad.addIngredients(new IngredientImpl("Яблоко", 1, "kg"));
+        salad.addIngredients(new IngredientImpl("Йогурт", 2, "kg"));
+
+        RecipeImpl.addRecipe(salad);
+    }
     private  String name;
     private  int time;
     private List<IngredientImpl> ingredients = new ArrayList<>();
@@ -34,7 +47,7 @@ public class RecipeImpl {
     public List<IngredientImpl> getIngredients() {
         return ingredients;
     }
-    public void addIngredient(IngredientImpl ingredient){
+    public void addIngredients(IngredientImpl ingredient){
         ingredients.add(ingredient);
     }
 
@@ -52,7 +65,7 @@ public class RecipeImpl {
 
     }
 
-    public static RecipeImpl getRecipe(Integer id) {
+    public static RecipeImpl getRecipe(RecipeImpl id) {
         return recipes.get(id);}
 
     @Override
@@ -64,6 +77,7 @@ public class RecipeImpl {
                 ", cookingSteps=" + cookingSteps +
                 '}';
     }
+
 }
 
 
