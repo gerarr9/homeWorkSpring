@@ -17,7 +17,7 @@ public class FoodController {
         this.recipe = recipe;
     }
     @GetMapping("/list")
-    public String recipesList(@RequestParam RecipeImpl  id){
+    public String recipesList(@RequestParam Integer id){
         return  this.recipe.getRecipe(id).toString();
     }
 }

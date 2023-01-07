@@ -1,5 +1,6 @@
 package me.course.product.services;
 
+import lombok.Data;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -8,6 +9,7 @@ import java.util.List;
 import java.util.Map;
 
 @Service
+@Data
 public class RecipeImpl {
     public static Map<Integer, RecipeImpl> recipes = new HashMap<>();
     static {
@@ -65,7 +67,7 @@ public class RecipeImpl {
 
     }
 
-    public static RecipeImpl getRecipe(RecipeImpl id) {
+    public static RecipeImpl getRecipe(Integer id) {
         return recipes.get(id);}
 
     @Override
